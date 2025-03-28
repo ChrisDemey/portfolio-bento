@@ -2,6 +2,26 @@
 
 @theme {
     --font-montserrat: "Montserrat", sans-serif;
+
+    /* Dark theme */
+    --color-dark: #242424;
+    --color-card-dark: #373737;
+    --color-light: #FFFFFF;
+    --color-medium-gray: #5A5A5A;
+    --color-light-gray: #D9D9D9;
+}
+
+/* Light theme */
+:root {
+    --color-dark: #F5F5F5;
+    --color-card-dark: #E0E0E0;
+    --color-light: #000000;
+    --color-medium-gray: #A0A0A0;
+    --color-light-gray: #404040;
+}
+
+/* Dark theme */
+.dark {
     --color-dark: #242424;
     --color-card-dark: #373737;
     --color-light: #FFFFFF;

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-screen font-montserrat w-full flex items-center bg-dark text-light justify-center"
+    class="h-screen font-montserrat w-full flex items-center bg-dark text-light-gray justify-center"
   >
     <div class="w-full max-w-6xl space-x-12 aspect-video flex">
       <!-- gauche -->
@@ -20,7 +20,7 @@
               des solutions digitales
             </h3>
           </div>
-          <div class="px-12 absolute z-0 opacity-30 bg-cover bg-center">
+          <div class="px-12 absolute z-0 opacity-40 bg-cover bg-center">
             <img
               src="./public/assets/Chriswave_logo.png"
               alt="chriswave_logo"
@@ -31,9 +31,137 @@
       <!-- droite -->
       <section class="w-1/2 h-full">
         <div class="grid size-full grid-cols-4 grid-rows-6 gap-4">
+          <!-- Modal for Portfolio -->
+          <Modal :is-open="portoflioModal" @close="portoflioModal = false">
+            <div class="grid grid-cols-4 gap-4">
+              <!-- Modèles de sites -->
+              <div class="col-span-4 bg-light-gray mt-4 rounded-2xl p-3">
+                <h2
+                  class="text-3xl text-dark text-center font-bold tracking-wider uppercase mb-6"
+                >
+                  Modèles de sites
+                </h2>
+                <div class="grid grid-cols-2 gap-6">
+                  <a
+                    v-for="model in websitesModels"
+                    :key="model.name"
+                    href=""
+                    target="_blank"
+                    class="group relative aspect-video"
+                  >
+                    <div
+                      class="rounded-xl group-hover:shadow-lg shadow-teal-500/50 absolute z-0 size-full bg-gradient-to-b from-[#F472B6] to-[#5EEAD4] to-75%"
+                    />
+                    <div
+                      class="z-10 absolute transform duration-300 group-hover:p-1.5 size-full"
+                    >
+                      <div
+                        class="group-hover:border-0 border transform duration-300 border-medium-gray text-light-gray overflow-hidden relative flex items-center justify-center group-hover:rounded-lg rounded-xl bg-card-dark size-full"
+                      >
+                        <div class="z-10 text-center">
+                          <h3
+                            class="text-3xl tracking-wider font-bold uppercase"
+                          >
+                            {{ model.name }}
+                          </h3>
+                          <p class="tracking-widest">
+                            {{ model.description }}
+                          </p>
+                        </div>
+                        <component
+                          class="z-0 absolute -right-10 -bottom-10"
+                          :is="model.icon"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <!-- séparateur -->
+              <div
+                class="mt-4 mb-2 col-span-4 h-px bg-gradient-to-r from-transparent via-light to-transparent"
+              />
+
+              <!-- Projets en société -->
+              <div class="col-span-4 space-y-4">
+                <h2
+                  class="text-3xl text-center font-bold mb-4 tracking-wider uppercase"
+                >
+                  Projets en société
+                </h2>
+                <h1
+                  class="pl-5 text-4xl font-thin tracking-widest uppercase mb-2 font"
+                >
+                  alstom
+                </h1>
+
+                <!-- Projets -->
+                <div
+                  v-for="project in projects"
+                  :key="project.name"
+                  class="h-48 flex space-x-6 p-3 bg-card-dark border border-medium-gray rounded-xl overflow-hidden"
+                >
+                  <div class="w-1/2 aspect-video overflow-hidden">
+                    <img
+                      :src="project.image"
+                      :alt="project.name"
+                      class="rounded-lg object-cover size-full"
+                    />
+                  </div>
+                  <div
+                    class="overflow-y-auto pr-2 w-1/2 flex flex-col justify-start"
+                  >
+                    <h3 class="text-xl tracking-wider font-medium uppercase">
+                      {{ project.name }}
+                    </h3>
+                    <p class="text-justify tracking-wide font-light">
+                      {{ project.description }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Modal>
+          <!-- Modal for why dev -->
+          <Modal :is-open="whyDevModal" @close="whyDevModal = false">
+            <div
+              class="mt-8 text-2xl font-extralight tracking-wide text-justify rounded-xl py-3 px-5"
+            >
+              <p class="*:font-medium">
+                Les plateformes no-code simplifient la création de sites, mais
+                elles
+                <span class="text-red-500">limitent la créativité</span>:
+                designs génériques, difficultés pour ajouter des fonctionnalités
+                spécifiques, risques de
+                <span class="text-red-500">lenteur</span>. Un développeur web,
+                lui, crée un site sur mesure:
+                <span class="text-emerald-500"
+                  >fluide, sécurisé et évolutif</span
+                >. Il intègre vos idées sans dépendre à des modules préconçus.
+              </p>
+              <div
+                class="mt-6 mb-4 col-span-4 h-px bg-gradient-to-r from-transparent via-light to-transparent"
+              />
+              <p class="*:font-medium">
+                Le no-code semble économique, mais à long terme, la
+                <span class="text-red-500">dépendance</span> à une plateforme
+                externe limite vos ambitions et génère des coûts cachés. Avec un
+                développeur, vous investissez dans un outil scalable,
+                <span class="text-emerald-500"
+                  >entièrement personnalisable</span
+                >
+                et maîtrisé. <br />
+                L’avantage clé ? Un
+                <span class="text-emerald-500">projet pérenne</span> qui vous
+                permet de besoins réels, sans frustrations techniques.
+              </p>
+            </div>
+          </Modal>
           <!-- Portoflio -->
           <grid-card
             class="group cursor-pointer relative col-span-2 row-span-2"
+            @click="portoflioModal = true"
           >
             <p
               class="inline-block relative after:absolute after:block after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full z-10 uppercase font-bold text-3xl"
@@ -45,11 +173,11 @@
             </div>
           </grid-card>
           <!-- Contact -->
-          <a
-            class="relative group col-span-2 row-span-3"
-            href="mailto:demey.christophe.dc@gmail.com"
-          >
-            <grid-card>
+          <grid-card class="relative group col-span-2 row-span-3">
+            <a
+              class="overflow-hidden"
+              href="mailto:demey.christophe.dc@gmail.com"
+            >
               <p
                 class="relative z-10 pl-2 uppercase font-bold text-3xl text-end"
               >
@@ -62,10 +190,11 @@
               <div class="absolute z-0 left-0 -bottom-3">
                 <icons-contact />
               </div>
-            </grid-card>
-          </a>
+            </a>
+          </grid-card>
           <!-- Why code ? -->
           <grid-card
+            @click="whyDevModal = true"
             class="group cursor-pointer relative col-span-2 flex items-end row-span-3"
           >
             <div class="relative z-10 uppercase w-2/3 font-thin text-2xl">
@@ -81,7 +210,7 @@
           </grid-card>
           <!-- Socials -->
           <grid-card
-            class="relative col-span-2 row-span-3 flex flex-col justify-center space-y-3 items-end"
+            class="group relative col-span-2 row-span-3 flex flex-col justify-center space-y-3 items-end"
           >
             <a
               v-for="social in socials"
@@ -113,31 +242,64 @@
 
 <script setup>
 import { ref } from "vue";
+import IconsOnepage from "./components/icons/Onepage.vue";
+import IconsMultipage from "./components/icons/Multipage.vue";
+
+const portoflioModal = ref(false);
+const whyDevModal = ref(false);
 
 const socials = [
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/chrisdemey/",
+    url: "https://www.linkedin.com/in/christophe-demey/",
   },
   {
     name: "Malt",
-    url: "https://github.com/chrisdemey",
+    url: "https://fr.malt.be/profile/christophedemey",
   },
   {
     name: "TikTok",
-    url: "https://twitter.com/chrisdemey",
+    url: "https://www.tiktok.com/@chriswave_dev",
   },
   {
     name: "Youtube",
-    url: "https://www.instagram.com/chrisdemey/",
+    url: "https://www.youtube.com/@chriswave_dev",
   },
   {
     name: "Github",
-    url: "https://github.com/chrisdemey",
+    url: "https://github.com/ChrisDemey",
   },
   {
     name: "Mail",
-    url: "https://www.youtube.com/channel/UC9-rYyUMsnEBK8G8fCyrXXA",
+    url: "mailto:demey.christophe.dc@gmail.com",
+  },
+];
+
+const projects = [
+  {
+    name: "Carsharing",
+    image: "/assets/carsharing_screenshot.png",
+    description:
+      "Projet de covoiturage réservés aux employés de l'entreprise. Il permet de créer/partager/rechercher des trajets ainsi que renseigner leur propre voiture ainsi que des destinations fixes.",
+  },
+  {
+    name: "Desksharing",
+    image: "/assets/desksharing_screenshot.png",
+    description:
+      "Projet de partage de bureaux, interne à l'entreprise. Mis en place durant la pandémie de Covid-19, il permet de visualiser la disponibilité des bureaux en temps réel et de les réserver pour des périodes de temps spécifiques.",
+  },
+];
+
+const websitesModels = [
+  {
+    name: "One Page",
+    description: "Minimaliste et efficace.",
+    icon: IconsOnepage,
+  },
+  {
+    name: "Multi Pages",
+    description: "Complet et structuré.",
+    icon: IconsMultipage,
   },
 ];
 

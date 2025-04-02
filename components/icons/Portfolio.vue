@@ -3,8 +3,14 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 -960 960 960"
     fill="currentColor"
-    class="text-medium-gray h-56"
+    class="text-medium-gray h-56 group-hover:scale-60 scale-100 transition-all duration-300"
   >
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color: #f472b6" />
+        <stop offset="75%" style="stop-color: #5eead4" />
+      </linearGradient>
+    </defs>
     <path
       d="M149-135q-39.05 0-66.53-27.48Q55-189.95 55-229v-502q0-39.46 27.47-67.23Q109.95-826 149-826h662q39.46 0 67.23 27.77Q906-770.46 906-731v502q0 39.05-27.77 66.52Q850.46-135 811-135H149Zm0-94h662v-418H149v418Zm151-63-42-42 103-104-104-104 43-42 146 146-146 146Zm190 4v-60h220v60H490Z"
     />

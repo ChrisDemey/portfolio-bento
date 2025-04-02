@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 @theme {
     --font-montserrat: "Montserrat", sans-serif;
 
@@ -13,10 +17,10 @@
 
 /* Light theme */
 :root {
-    --color-dark: #F5F5F5;
-    --color-card-dark: #E0E0E0;
+    --color-dark: #f3ebda;
+    --color-card-dark: #e2dbcf;
     --color-light: #000000;
-    --color-medium-gray: #A0A0A0;
+    --color-medium-gray: #bbb7b0;
     --color-light-gray: #404040;
 }
 

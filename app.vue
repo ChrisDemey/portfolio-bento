@@ -1,47 +1,80 @@
 <template>
-  <div
-    class="h-screen font-montserrat w-full flex items-center bg-dark text-light-gray justify-center"
-  >
-    <div class="w-full max-w-6xl space-x-12 aspect-video flex">
+  <div class="min-h-screen font-montserrat w-full bg-dark text-light-gray">
+    <div
+      class="w-full max-w-6xl mx-auto flex flex-col lg:flex-row lg:space-x-12 lg:aspect-video lg:min-h-screen lg:items-center"
+    >
       <!-- gauche -->
-      <section class="w-1/2">
+      <section
+        class="w-full lg:w-1/2 h-screen lg:h-auto flex items-center justify-center"
+      >
         <div class="relative px-6 flex size-full items-center justify-center">
           <div class="relative z-10 uppercase">
-            <h1 class="pr-1 -mb-1 font-thin text-4xl tracking-widest text-end">
+            <h1
+              class="pr-1 mb-2 lg:-mb-1 font-thin text-3xl lg:text-4xl tracking-widest text-center lg:text-end"
+            >
               chriswave
             </h1>
-            <h2 class="font-bold leading-13 text-end text-6xl tracking-widest">
+            <h2
+              class="font-bold lg:leading-13 text-center lg:text-end text-4xl lg:text-6xl tracking-widest"
+            >
               développeur web
             </h2>
             <h3
-              class="px-2 tracking-wider text-3xl font-thin mt-4 text-justify"
+              class="px-2 tracking-wider text-xl lg:text-3xl font-thin mt-4 text-justify"
             >
               mon travail est d'aider les gens en leur créant des sites web &
               des solutions digitales
             </h3>
+            <!-- Flèche animée pour mobile -->
+            <div class="flex justify-center mt-12 -mb-20 lg:hidden">
+              <svg
+                class="cursor-pointer rounded-full border-2 w-8 h-8 text-current animate-bounce"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                @click="scrollToBento"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4v16m0 0l-4-4m4 4l4-4"
+                />
+              </svg>
+            </div>
           </div>
           <div class="px-12 absolute z-0 opacity-40 bg-cover bg-center">
             <img
               src="./public/assets/Chriswave_logo.png"
               alt="chriswave_logo"
+              class="w-full h-auto"
             />
           </div>
         </div>
       </section>
+
       <!-- droite -->
-      <section class="w-1/2 h-full">
-        <div class="grid size-full grid-cols-4 grid-rows-6 gap-4">
+      <section
+        id="bento-section"
+        class="w-full lg:w-1/2 min-h-screen lg:h-auto py-8 lg:py-0 flex items-center px-4 lg:px-0"
+      >
+        <div
+          class="grid size-full grid-cols-2 lg:grid-cols-4 grid-rows-6 gap-2 lg:gap-4"
+        >
           <!-- Modal for Portfolio -->
           <Modal :is-open="portoflioModal" @close="portoflioModal = false">
-            <div class="grid grid-cols-4 gap-4">
+            <div class="lg:grid lg:grid-cols-4 gap-4">
               <!-- Modèles de sites -->
-              <div class="col-span-4 bg-light-gray mt-4 rounded-2xl p-3">
+              <div
+                class="col-span-1 lg:col-span-4 bg-light-gray mt-4 rounded-2xl p-3"
+              >
                 <h2
-                  class="text-3xl text-dark text-center font-bold tracking-wider uppercase mb-6"
+                  class="text-2xl lg:text-3xl text-dark text-center font-bold tracking-wider uppercase mb-6"
                 >
                   Modèles de sites
                 </h2>
-                <div class="grid grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <a
                     v-for="model in websitesModels"
                     :key="model.name"
@@ -84,14 +117,14 @@
               />
 
               <!-- Projets en société -->
-              <div class="col-span-4 space-y-4">
+              <div class="col-span-1 lg:col-span-4 space-y-4">
                 <h2
-                  class="text-3xl text-center font-bold mb-4 tracking-wider uppercase"
+                  class="text-2xl lg:text-3xl text-center font-bold mb-4 tracking-wider uppercase"
                 >
                   Projets en société
                 </h2>
                 <h1
-                  class="pl-5 text-4xl font-thin tracking-widest uppercase mb-2 font"
+                  class="pl-5 text-3xl lg:text-4xl font-thin tracking-widest uppercase mb-2 font"
                 >
                   alstom
                 </h1>
@@ -100,9 +133,9 @@
                 <div
                   v-for="project in projects"
                   :key="project.name"
-                  class="h-48 flex space-x-6 p-3 bg-card-dark border border-medium-gray rounded-xl overflow-hidden"
+                  class="h-auto lg:h-48 flex flex-col lg:flex-row lg:space-x-6 p-3 bg-card-dark border border-medium-gray rounded-xl overflow-hidden"
                 >
-                  <div class="w-1/2 aspect-video overflow-hidden">
+                  <div class="w-full lg:w-1/2 aspect-video overflow-hidden">
                     <img
                       :src="project.image"
                       :alt="project.name"
@@ -110,7 +143,7 @@
                     />
                   </div>
                   <div
-                    class="overflow-y-auto pr-2 w-1/2 flex flex-col justify-start"
+                    class="overflow-y-auto pr-2 w-full lg:w-1/2 flex flex-col justify-start mt-4 lg:mt-0"
                   >
                     <h3 class="text-xl tracking-wider font-medium uppercase">
                       {{ project.name }}
@@ -126,7 +159,7 @@
           <!-- Modal for why dev -->
           <Modal :is-open="whyDevModal" @close="whyDevModal = false">
             <div
-              class="mt-8 text-2xl font-extralight tracking-wide text-justify rounded-xl py-3 px-5"
+              class="mt-8 text-lg lg:text-2xl lg:leading-normal leading-6 font-extralight lg:tracking-wide text-justify rounded-xl py-3 px-5"
             >
               <p class="*:font-medium">
                 Les plateformes no-code simplifient la création de sites, mais
@@ -152,7 +185,7 @@
                   >entièrement personnalisable</span
                 >
                 et maîtrisé. <br />
-                L’avantage clé ? Un
+                L'avantage clé ? Un
                 <span class="text-emerald-500">projet pérenne</span> qui vous
                 permet de besoins réels, sans frustrations techniques.
               </p>
@@ -160,11 +193,11 @@
           </Modal>
           <!-- Portoflio -->
           <grid-card
-            class="group cursor-pointer relative col-span-2 row-span-2"
+            class="group cursor-pointer relative col-span-1 lg:col-span-2 row-span-2"
             @click="portoflioModal = true"
           >
             <p
-              class="inline-block relative after:absolute after:block after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full z-10 uppercase font-bold text-3xl"
+              class="inline-block relative after:absolute after:block after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full z-10 uppercase font-bold text-2xl lg:text-3xl"
             >
               portfolio
             </p>
@@ -173,13 +206,13 @@
             </div>
           </grid-card>
           <!-- Contact -->
-          <grid-card class="relative group col-span-2 row-span-3">
+          <grid-card class="relative group col-span-1 lg:col-span-2 row-span-3">
             <a
               class="overflow-hidden"
               href="mailto:demey.christophe.dc@gmail.com"
             >
               <p
-                class="relative z-10 pl-2 uppercase font-bold text-3xl text-end"
+                class="relative z-10 pl-2 uppercase font-bold text-2xl lg:text-3xl text-end"
               >
                 <span
                   class="relative after:absolute after:block after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full"
@@ -195,9 +228,11 @@
           <!-- Why code ? -->
           <grid-card
             @click="whyDevModal = true"
-            class="group cursor-pointer relative col-span-2 flex items-end row-span-3"
+            class="group cursor-pointer relative col-span-1 lg:col-span-2 flex items-end row-span-3"
           >
-            <div class="relative z-10 uppercase w-2/3 font-thin text-2xl">
+            <div
+              class="relative z-10 uppercase w-2/3 font-thin text-xl lg:text-2xl"
+            >
               <span
                 class="relative after:absolute after:block after:w-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full"
                 >pourquoi</span
@@ -210,12 +245,12 @@
           </grid-card>
           <!-- Socials -->
           <grid-card
-            class="group relative col-span-2 row-span-3 flex flex-col justify-center space-y-3 items-end"
+            class="group relative col-span-1 lg:col-span-2 row-span-3 flex flex-col justify-center space-y-3 items-end"
           >
             <a
               v-for="social in socials"
               :key="social.name"
-              class="relative z-10 font-thin text-xl after:absolute after:block after:w-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 hover:after:w-full"
+              class="relative z-10 font-thin text-lg lg:text-xl after:absolute after:block after:w-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 hover:after:w-full"
               :href="social.url"
               target="_blank"
             >
@@ -226,11 +261,17 @@
             </div>
           </grid-card>
           <!-- Language & Theme -->
-          <grid-card class="col-span-2 divide-x row-span-1 flex">
-            <div class="w-1/2 pl-2 flex items-center justify-start">
+          <grid-card
+            class="col-span-1 lg:col-span-2 divide-y lg:divide-y-0 lg:divide-x row-span-1 flex flex-col lg:flex-row"
+          >
+            <div
+              class="w-full lg:w-1/2 lg:pl-2 flex items-center justify-center lg:justify-start py-2 lg:py-0"
+            >
               <LanguageSwitch v-model="locale" />
             </div>
-            <div class="w-1/2 flex items-center justify-end">
+            <div
+              class="w-full lg:w-1/2 flex items-center justify-center lg:pr-1 lg:justify-end py-2 lg:py-0"
+            >
               <ThemeSwitch v-model="isDark" />
             </div>
           </grid-card>
@@ -247,6 +288,11 @@ import IconsMultipage from "./components/icons/Multipage.vue";
 
 const portoflioModal = ref(false);
 const whyDevModal = ref(false);
+
+const scrollToBento = () => {
+  const bentoSection = document.getElementById("bento-section");
+  bentoSection.scrollIntoView({ behavior: "smooth" });
+};
 
 const socials = [
   {

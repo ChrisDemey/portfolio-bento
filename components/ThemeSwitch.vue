@@ -1,16 +1,16 @@
 <template>
-  <div class="flex items-center space-x-2">
-    <IconsDarkMode />
+  <div class="flex items-center space-x-2 sm:space-x-2">
+    <IconsDarkMode class="size-5 sm:size-5" />
     <button
       @click="toggle"
-      class="cursor-pointer relative bg-light inline-flex h-5 w-8 items-center rounded-full"
+      class="cursor-pointer relative bg-light inline-flex h-5 sm:h-5 w-8 sm:w-8 items-center rounded-full"
     >
       <span
-        class="inline-block size-4 transform rounded-full bg-card-dark transition"
+        class="inline-block size-4 sm:size-4 transform rounded-full bg-card-dark transition"
         :class="modelValue ? 'translate-x-0.5' : 'translate-x-3.5'"
       ></span>
     </button>
-    <IconsLightMode />
+    <IconsLightMode class="size-5 sm:size-5" />
   </div>
 </template>
 

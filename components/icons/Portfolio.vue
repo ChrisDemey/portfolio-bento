@@ -3,7 +3,7 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 -960 960 960"
     fill="currentColor"
-    class="text-medium-gray h-56 group-hover:scale-60 scale-100 transition-all duration-300"
+    class="text-medium-gray h-40 sm:h-56 group-hover:scale-60 scale-100 transition-all duration-300"
   >
     <defs>
       <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">

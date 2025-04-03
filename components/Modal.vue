@@ -10,21 +10,21 @@
     >
       <div
         v-if="isOpen"
-        class="fixed inset-0 bg-dark flex items-center justify-center z-50"
+        class="fixed inset-0 bg-dark flex items-center justify-center z-50 p-4"
         @click="closeModal"
       >
         <div
-          class="relative w-11/12 max-w-2xl max-h-[90vh] text-light overflow-y-auto px-8 pb-8 pt-12"
+          class="relative w-full max-w-2xl max-h-[90vh] text-light overflow-y-auto px-4 sm:px-8 pb-6 sm:pb-8 pt-10 sm:pt-12"
           @click.stop
         >
           <button
-            class="absolute top-4 right-4 text-light hover:text-light/80 transition-colors"
+            class="absolute top-3 right-3 sm:top-4 sm:right-4 text-light hover:text-light/80 transition-colors"
             @click="closeModal"
           >
             <span class="sr-only">Fermer</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="size-10"
+              class="size-8 sm:size-10"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

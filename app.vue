@@ -262,9 +262,12 @@
           </grid-card>
           <!-- Language & Theme -->
           <grid-card
-            class="col-span-1 lg:col-span-2 divide-y lg:divide-y-0 lg:divide-x row-span-1 flex flex-col lg:flex-row"
+            class="col-span-1 lg:col-span-2 row-span-1 flex flex-col lg:flex-row"
           >
-            <div
+            <div class="size-full flex items-center justify-center">
+              <ThemeSwitch v-model="isDark" />
+            </div>
+            <!-- <div
               class="w-full lg:w-1/2 lg:pl-2 flex items-center justify-center lg:justify-start py-2 lg:py-0"
             >
               <LanguageSwitch v-model="locale" />
@@ -273,7 +276,7 @@
               class="w-full lg:w-1/2 flex items-center justify-center lg:pr-1 lg:justify-end py-2 lg:py-0"
             >
               <ThemeSwitch v-model="isDark" />
-            </div>
+            </div> -->
           </grid-card>
         </div>
       </section>

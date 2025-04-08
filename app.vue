@@ -79,7 +79,7 @@
                 <a
                   v-for="model in websitesModels"
                   :key="model.name"
-                  href=""
+                  :href="model.link"
                   target="_blank"
                   class="group relative aspect-video"
                 >
@@ -340,14 +340,15 @@ const websitesModels = [
     name: "One Page",
     description: "Minimaliste et efficace.",
     icon: IconsOnepage,
+    link: "https://onepage-model-rho.vercel.app/",
   },
   {
     name: "Multi Pages",
     description: "Complet et structuré.",
     icon: IconsMultipage,
+    link: "https://multipage-model.vercel.app/",
   },
 ];
 
-const locale = ref("fr");
 const isDark = ref(true);
 </script>

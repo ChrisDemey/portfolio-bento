@@ -10,7 +10,7 @@
     >
       <div
         v-if="isOpen"
-        class="fixed inset-0 bg-dark flex items-center justify-center z-50 p-4"
+        class="fixed inset-0 bg-dark/30 backdrop-blur-xl flex items-center justify-center z-50 p-4"
         @click="closeModal"
       >
         <div

@@ -101,7 +101,7 @@
                         </p>
                       </div>
                       <component
-                        class="z-0 absolute -right-10 -bottom-10"
+                        class="z-0 absolute -right-2 -bottom-10"
                         :is="model.icon"
                       />
                     </div>
@@ -215,7 +215,7 @@
               >
               de votre projet
             </p>
-            <div class="absolute z-0 left-0 -bottom-3">
+            <div class="absolute z-0 -left-0 -bottom-12">
               <icons-contact />
             </div>
           </a>
@@ -226,7 +226,7 @@
           class="group cursor-pointer relative row-span-3"
         >
           <div
-            class="group-hover:-ml-1.5 group-hover:-mb-1.5 transform duration-300 absolute bottom-2 z-10 uppercase w-1/2 font-thin text-xl lg:text-2xl"
+            class="group-hover:-ml-1.5 group-hover:-mb-1.5 transform duration-300 absolute bottom-2 z-10 uppercase w-2/3 font-thin text-xl lg:text-2xl"
           >
             <span
               class="relative after:absolute after:block after:w-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full"
@@ -255,7 +255,7 @@
               </p>
             </a>
           </div>
-          <div class="absolute z-0 bottom-8 -left-20">
+          <div class="absolute z-0 bottom-10 -left-12">
             <icons-socials />
           </div>
         </grid-card>

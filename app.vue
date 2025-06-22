@@ -285,6 +285,12 @@ import { ref } from "vue";
 import IconsOnepage from "./components/icons/Onepage.vue";
 import IconsMultipage from "./components/icons/Multipage.vue";
 
+import { useHead } from "#imports";
+
+useHead({
+  title: "Chriswave | Web Dev",
+});
+
 const portoflioModal = ref(false);
 const whyDevModal = ref(false);
 

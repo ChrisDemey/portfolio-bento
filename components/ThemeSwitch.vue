@@ -4,6 +4,9 @@
     <button
       @click="toggle"
       class="cursor-pointer relative bg-light inline-flex h-5 w-8 items-center rounded-full"
+      :aria-label="
+        modelValue ? 'Activer le mode clair' : 'Activer le mode sombre'
+      "
     >
       <span
         class="inline-block size-4 transform rounded-full bg-card-dark transition"

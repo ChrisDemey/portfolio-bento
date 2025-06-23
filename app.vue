@@ -285,10 +285,17 @@ import { ref } from "vue";
 import IconsOnepage from "./components/icons/Onepage.vue";
 import IconsMultipage from "./components/icons/Multipage.vue";
 
-import { useHead } from "#imports";
-
-useHead({
+useSeoMeta({
   title: "Chriswave | Web Dev",
+  ogTitle: "Chriswave | Développeur web freelance",
+  titleTemplate: "%s",
+  description:
+    "Développeur web freelance – Création de sites web sur-mesure, modernes et performants.",
+  ogDescription:
+    "Besoin d’un site web unique? Chriswave, développeur freelance, crée votre solution digitale sur-mesure!",
+  ogImage: "/assets/Chriswave_logo.png",
+  twitterCard: "summary_large_image",
+  // themeColor: "#242424",
 });
 
 const portoflioModal = ref(false);

@@ -2,10 +2,12 @@
   <div
     class="relative flex justify-center items-center bg-dark w-full min-h-screen font-montserrat text-light-gray"
   >
+    <div class="z-0 absolute inset-0 opacity-70 background--custom" />
+    <div class="z-5 absolute inset-0 bg-radial from-dark via-dark/70 to-transparent" />
     <img
       src="/assets/Chriswave_logo.png"
       alt="chriswave_logo"
-      class="top-7 absolute size-20 object-cover"
+      class="top-7 z-10 absolute size-20 object-cover"
     />
     <div
       class="z-10 relative flex lg:flex-row flex-col lg:items-center lg:space-x-12 mx-auto w-full max-w-6xl h-full lg:aspect-video"

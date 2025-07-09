@@ -32,3 +32,18 @@
     --color-medium-gray: #5A5A5A;
     --color-light-gray: #D9D9D9;
 }
+
+.background--custom {
+    background: linear-gradient(90deg, #F472B6, #5EEAD4);
+    background-size: 300% 300%;
+    animation: gradient 5s alternate infinite;
+}
+
+@keyframes gradient {
+0% {
+    background-position: 0%;
+}
+100% {
+    background-position: 100%;
+}
+}

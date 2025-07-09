@@ -69,15 +69,55 @@
       >
         <!-- Modal for Portfolio -->
         <Modal :is-open="portoflioModal" @close="portoflioModal = false">
-          <div class="gap-4 lg:grid lg:grid-cols-4">
-            <!-- Modèles de sites -->
-            <div
-              class="col-span-1 lg:col-span-4 bg-light-gray mt-4 p-3 rounded-2xl"
+          <div class="gap-8 lg:gap-4 grid lg:grid-cols-4">
+            <div v-for="company in projectsByCompany" :key="company.company" class="col-span-1 lg:col-span-4">
+                <h1
+                  class="mb-2 pl-5 font-thin text-3xl uppercase tracking-widest"
+                >
+                  {{ company.company }}
+                </h1>
+                <div
+                  v-for="project in company.projects"
+                  :key="project.name"
+                  class="flex lg:flex-row flex-col lg:space-x-6 bg-card-dark mb-4 p-3 border border-medium-gray rounded-xl h-auto lg:h-48 overflow-hidden"
+                >
+                  <a v-if="project.link" :href="project.link" target="_blank" class="w-full lg:w-1/2 aspect-video overflow-hidden scale-100 hover:scale-102 transition">
+                    <img
+                      :src="project.image"
+                      :alt="project.name"
+                      class="rounded-lg size-full object-cover"
+                    />
+                  </a>
+                  <div v-else class="w-full lg:w-1/2 aspect-video overflow-hidden">
+                    <img
+                      :src="project.image"
+                      :alt="project.name"
+                      class="rounded-lg size-full object-cover"
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col justify-start mt-4 lg:mt-0 pr-2 w-full lg:w-1/2 overflow-y-auto"
+                  >
+                    <h3 class="font-medium text-xl uppercase tracking-wider">
+                      {{ project.name }}
+                    </h3>
+                    <p class="font-light text-justify tracking-wide">
+                      {{ project.description }}
+                    </p>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
+        <!-- Modal for models -->
+        <Modal :is-open="modelsModal" @close="modelsModal = false">
+          <div
+              class="col-span-1 lg:col-span-4 bg-light-gray mt-4 px-3 pt-6 pb-3 rounded-2xl"
             >
               <h2
                 class="mb-6 font-bold text-dark text-2xl lg:text-3xl text-center uppercase tracking-wider"
               >
-                Modèles de sites
+                Modèles de base
               </h2>
               <div class="gap-6 grid grid-cols-1 lg:grid-cols-2">
                 <a
@@ -113,82 +153,6 @@
                 </a>
               </div>
             </div>
-
-            <!-- séparateur -->
-            <div
-              class="col-span-4 bg-gradient-to-r from-transparent via-light to-transparent mt-4 mb-2 h-px"
-            />
-
-            <!-- Projets en société -->
-            <div class="space-y-4 col-span-1 lg:col-span-4">
-              <h2
-                class="mb-4 font-bold text-2xl lg:text-3xl text-center uppercase tracking-wider"
-              >
-                Projets en société
-              </h2>
-              <h1
-                class="mb-2 pl-5 font-thin text-3xl lg:text-4xl uppercase tracking-widest font"
-              >
-                alstom
-              </h1>
-
-              <!-- Projets -->
-              <div
-                v-for="project in projects"
-                :key="project.name"
-                class="flex lg:flex-row flex-col lg:space-x-6 bg-card-dark p-3 border border-medium-gray rounded-xl h-auto lg:h-48 overflow-hidden"
-              >
-                <div class="w-full lg:w-1/2 aspect-video overflow-hidden">
-                  <img
-                    :src="project.image"
-                    :alt="project.name"
-                    class="rounded-lg size-full object-cover"
-                  />
-                </div>
-                <div
-                  class="flex flex-col justify-start mt-4 lg:mt-0 pr-2 w-full lg:w-1/2 overflow-y-auto"
-                >
-                  <h3 class="font-medium text-xl uppercase tracking-wider">
-                    {{ project.name }}
-                  </h3>
-                  <p class="font-light text-justify tracking-wide">
-                    {{ project.description }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Modal>
-        <!-- Modal for why dev -->
-        <Modal :is-open="whyDevModal" @close="whyDevModal = false">
-          <div
-            class="mt-8 px-5 py-3 rounded-xl font-extralight text-lg lg:text-2xl text-justify leading-6 lg:leading-normal lg:tracking-wide"
-          >
-            <p class="*:font-medium">
-              Les plateformes no-code simplifient la création de sites, mais
-              elles
-              <span class="text-red-500">limitent la créativité</span>: designs
-              génériques, difficultés pour ajouter des fonctionnalités
-              spécifiques, risques de <span class="text-red-500">lenteur</span>.
-              Un développeur web, lui, crée un site sur mesure:
-              <span class="text-emerald-500">fluide, sécurisé et évolutif</span
-              >. Il intègre vos idées sans dépendre à des modules préconçus.
-            </p>
-            <div
-              class="col-span-4 bg-gradient-to-r from-transparent via-light to-transparent mt-6 mb-4 h-px"
-            />
-            <p class="*:font-medium">
-              Le no-code semble économique, mais à long terme, la
-              <span class="text-red-500">dépendance</span> à une plateforme
-              externe limite vos ambitions et génère des coûts cachés. Avec un
-              développeur, vous investissez dans un outil scalable,
-              <span class="text-emerald-500">entièrement personnalisable</span>
-              et maîtrisé. <br />
-              L'avantage clé ? Un
-              <span class="text-emerald-500">projet pérenne</span> qui vous
-              permet de besoins réels, sans frustrations techniques.
-            </p>
-          </div>
         </Modal>
         <!-- Portoflio -->
         <grid-card
@@ -200,11 +164,11 @@
           >
             portfolio
           </p>
-          <div class="-right-10 -bottom-14 z-0 absolute">
-            <icons-portfolio />
+          <div class="-right-10 -bottom-18 z-0 absolute">
+            <icons-briefcase />
           </div>
         </grid-card>
-        <!-- Contact -->
+        <!-- Discutons de votre projet -->
         <grid-card class="group relative row-span-3">
           <a
             class="overflow-hidden"
@@ -224,22 +188,22 @@
             </div>
           </a>
         </grid-card>
-        <!-- Why code ? -->
+        <!-- Modèles de site -->
         <grid-card
-          @click="whyDevModal = true"
+          @click="modelsModal = true"
           class="group relative row-span-3 cursor-pointer"
         >
           <div
-            class="bottom-2 z-10 absolute group-hover:-mb-1.5 group-hover:-ml-1.5 w-2/3 font-thin text-xl lg:text-2xl uppercase duration-300 transform"
-          >
+            class="bottom-4 z-10 absolute group-hover:-mb-1.5 group-hover:-ml-1.5 w-[80%] font-thin text-xl lg:text-2xl uppercase duration-300 transform"
+          > Mes
             <span
               class="after:block after:bottom-0 after:left-0 after:absolute relative after:bg-current after:w-0 group-hover:after:w-full after:h-px after:transition-width after:duration-300"
-              >pourquoi</span
+              >modèles</span
             >
-            faire appel à un dev ?
+            de site web
           </div>
-          <div class="top-0 -right-16 z-0 absolute">
-            <icons-why />
+          <div class="top-0 -right-12 z-0 absolute">
+            <icons-models />
           </div>
         </grid-card>
         <!-- Socials -->
@@ -303,7 +267,7 @@ useSeoMeta({
 });
 
 const portoflioModal = ref(false);
-const whyDevModal = ref(false);
+const modelsModal = ref(false);
 
 const scrollToBento = () => {
   const bentoSection = document.getElementById("bento-section");
@@ -337,19 +301,35 @@ const socials = [
   },
 ];
 
-const projects = [
+const projectsByCompany = [
   {
-    name: "Carsharing",
-    image: "/assets/carsharing_screenshot.png",
-    description:
-      "Projet de covoiturage réservés aux employés de l'entreprise. Il permet de créer/partager/rechercher des trajets ainsi que renseigner leur propre voiture ainsi que des destinations fixes.",
+    company: "Alstom",
+    projects: [
+      {
+        name: "Carsharing",
+        image: "/assets/carsharing_screenshot.png",
+        description:
+          "Projet de covoiturage réservés aux employés de l'entreprise. Il permet de créer/partager/rechercher des trajets ainsi que renseigner leur propre voiture ainsi que des destinations fixes.",
+      },
+      {
+        name: "Desksharing",
+        image: "/assets/desksharing_screenshot.png",
+        description:
+          "Projet de partage de bureaux, interne à l'entreprise. Mis en place durant la pandémie de Covid-19, il permet de visualiser la disponibilité des bureaux en temps réel et de les réserver pour des périodes de temps spécifiques.",
+      },
+    ],
   },
   {
-    name: "Desksharing",
-    image: "/assets/desksharing_screenshot.png",
-    description:
-      "Projet de partage de bureaux, interne à l'entreprise. Mis en place durant la pandémie de Covid-19, il permet de visualiser la disponibilité des bureaux en temps réel et de les réserver pour des périodes de temps spécifiques.",
-  },
+    company: "Nirvana Centre de Bien-Être",
+    projects: [
+      {
+        image: "/assets/nirvana_screenshot.png",
+        description:
+          "J'ai réalisé ce site vitrine pour un centre de beauté, il s'agissait de concevoir une page d'accueil simple et efficace pour présenter leurs services.",
+        link: "https://www.nirvanacentredebienetre.com/"
+      }
+    ]
+  }
 ];
 
 const websitesModels = [

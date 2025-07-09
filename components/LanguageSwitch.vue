@@ -1,16 +1,16 @@
 <template>
   <div class="flex items-center space-x-2 sm:space-x-2">
-    <span class="text-sm sm:text-sm font-thin">FR</span>
+    <span class="font-thin text-sm sm:text-sm">FR</span>
     <button
       @click="toggle"
-      class="cursor-pointer relative bg-light inline-flex h-5 sm:h-5 w-8 sm:w-8 items-center rounded-full"
+      class="inline-flex relative items-center bg-light rounded-full w-8 sm:w-8 h-5 sm:h-5 cursor-pointer"
     >
       <span
-        class="inline-block size-4 sm:size-4 transform rounded-full bg-card-dark transition"
+        class="inline-block bg-card-dark rounded-full size-4 sm:size-4 transition transform"
         :class="modelValue === 'fr' ? 'translate-x-0.5' : 'translate-x-3.5'"
       ></span>
     </button>
-    <span class="text-sm sm:text-sm font-thin">EN</span>
+    <span class="font-thin text-sm sm:text-sm">EN</span>
   </div>
 </template>
 

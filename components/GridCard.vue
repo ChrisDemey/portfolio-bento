@@ -1,13 +1,13 @@
 <template>
-  <div class="relative group size-full">
+  <div class="group relative size-full">
     <div
-      class="rounded-xl group-hover:shadow-lg shadow-teal-500/50 absolute z-0 size-full bg-gradient-to-b from-[#F472B6] to-[#5EEAD4] to-75%"
+      class="z-0 absolute bg-gradient-to-b from-[#F472B6] to-[#5EEAD4] to-75% shadow-teal-500/50 group-hover:shadow-lg rounded-xl size-full"
     />
     <div
-      class="z-10 size-full absolute transform duration-300 group-hover:p-1.5"
+      class="z-10 absolute group-hover:p-1.5 size-full duration-300 transform"
     >
       <div
-        class="group-hover:shadow-inner shadow-black/40 p-4 size-full group-hover:border-0 border transform duration-300 border-medium-gray text-light-gray overflow-hidden relative group-hover:rounded-lg rounded-xl bg-card-dark"
+        class="relative bg-card-dark shadow-black/40 group-hover:shadow-inner p-4 border border-medium-gray group-hover:border-0 rounded-xl group-hover:rounded-lg size-full overflow-hidden text-light-gray duration-300 transform"
       >
         <slot />
       </div>

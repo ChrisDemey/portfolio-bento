@@ -1,46 +1,50 @@
 <template>
   <div
-    class="min-h-screen font-montserrat flex items-center justify-center w-full bg-dark text-light-gray"
+    class="relative flex justify-center items-center bg-dark w-full min-h-screen font-montserrat text-light-gray"
   >
+    <img
+      src="/assets/Chriswave_logo.png"
+      alt="chriswave_logo"
+      class="top-7 absolute size-20 object-cover"
+    />
     <div
-      class="w-full max-w-6xl h-full mx-auto flex flex-col lg:flex-row lg:space-x-12 lg:aspect-video lg:items-center"
+      class="z-10 relative flex lg:flex-row flex-col lg:items-center lg:space-x-12 mx-auto w-full max-w-6xl h-full lg:aspect-video"
     >
       <!-- gauche -->
       <section
-        class="w-full lg:w-1/2 h-screen lg:h-auto flex items-center justify-center"
+        class="flex justify-center items-center w-full lg:max-w-1/2 lg:h-full"
       >
         <div
-          class="relative px-6 flex flex-col size-full items-center justify-center"
+          class="relative flex flex-col justify-start items-center"
         >
-          <div class="relative z-10 uppercase">
+          <div class="z-10 relative w-full uppercase">
             <h1
-              class="pr-1 mb-2 lg:-mb-1 font-thin text-3xl lg:text-4xl tracking-widest text-center lg:text-end"
-            >
-              chriswave
-            </h1>
-            <h2
-              class="font-bold lg:leading-13 text-center lg:text-end text-4xl lg:text-6xl tracking-widest"
+              class="font-thin text-3xl lg:text-4xl text-center lg:text-end tracking-widest"
             >
               développeur web
+            </h1>
+            <h2
+              class="font-bold text-4xl lg:text-8xl text-center lg:text-end"
+            >
+              Chriswave
             </h2>
             <h3
-              class="px-2 tracking-wider text-xl lg:text-3xl font-thin mt-4 text-justify"
+              class="mt-4 lg:pr-2 font-thin text-xl lg:text-3xl text-center lg:text-end leading-10 tracking-widest"
             >
-              mon travail est d'aider les gens en leur créant des sites web &
-              des solutions digitales
+              Création de <span class="font-bold">sites web</span> et <span class="font-bold">solutions digitales</span> (SaaS)
             </h3>
           </div>
-          <div class="px-12 absolute z-0 opacity-40 bg-cover bg-center">
+          <!-- <div class="-bottom-8 z-0 absolute flex flex-col items-center w-full">
             <img
-              src="./public/assets/Chriswave_logo.png"
+              src="/assets/Chriswave_logo.png"
               alt="chriswave_logo"
-              class="w-full h-auto"
+              class="opacity-25 object-contain"
             />
-          </div>
+          </div> -->
           <!-- Flèche animée pour mobile -->
-          <div class="flex justify-center mt-12 -mb-20 lg:hidden">
+          <div class="lg:hidden right-0 bottom-0 left-0 absolute flex justify-center mt-12 -mb-20">
             <svg
-              class="cursor-pointer rounded-full border-2 w-8 h-8 text-current animate-bounce"
+              class="border-2 rounded-full w-8 h-8 text-current animate-bounce cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -61,21 +65,21 @@
       <!-- droite -->
       <section
         id="bento-section"
-        class="w-full p-4 lg:p-0 lg:w-1/2 lg:h-full h-screen grid grid-cols-2 grid-rows-6 gap-4"
+        class="gap-4 grid grid-cols-2 grid-rows-6 p-4 lg:p-0 w-full lg:max-w-1/2 h-screen lg:h-full"
       >
         <!-- Modal for Portfolio -->
         <Modal :is-open="portoflioModal" @close="portoflioModal = false">
-          <div class="lg:grid lg:grid-cols-4 gap-4">
+          <div class="gap-4 lg:grid lg:grid-cols-4">
             <!-- Modèles de sites -->
             <div
-              class="col-span-1 lg:col-span-4 bg-light-gray mt-4 rounded-2xl p-3"
+              class="col-span-1 lg:col-span-4 bg-light-gray mt-4 p-3 rounded-2xl"
             >
               <h2
-                class="text-2xl lg:text-3xl text-dark text-center font-bold tracking-wider uppercase mb-6"
+                class="mb-6 font-bold text-dark text-2xl lg:text-3xl text-center uppercase tracking-wider"
               >
                 Modèles de sites
               </h2>
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="gap-6 grid grid-cols-1 lg:grid-cols-2">
                 <a
                   v-for="model in websitesModels"
                   :key="model.name"
@@ -84,16 +88,16 @@
                   class="group relative aspect-video"
                 >
                   <div
-                    class="rounded-xl group-hover:shadow-lg shadow-teal-500/50 absolute z-0 size-full bg-gradient-to-b from-[#F472B6] to-[#5EEAD4] to-75%"
+                    class="z-0 absolute bg-gradient-to-b from-[#F472B6] to-[#5EEAD4] to-75% shadow-teal-500/50 group-hover:shadow-lg rounded-xl size-full"
                   />
                   <div
-                    class="z-10 absolute transform duration-300 group-hover:p-1.5 size-full"
+                    class="z-10 absolute group-hover:p-1.5 size-full duration-300 transform"
                   >
                     <div
-                      class="group-hover:border-0 border transform duration-300 border-medium-gray text-light-gray overflow-hidden relative flex items-center justify-center group-hover:rounded-lg rounded-xl bg-card-dark size-full"
+                      class="relative flex justify-center items-center bg-card-dark border border-medium-gray group-hover:border-0 rounded-xl group-hover:rounded-lg size-full overflow-hidden text-light-gray duration-300 transform"
                     >
                       <div class="z-10 text-center">
-                        <h3 class="text-3xl tracking-wider font-bold uppercase">
+                        <h3 class="font-bold text-3xl uppercase tracking-wider">
                           {{ model.name }}
                         </h3>
                         <p class="tracking-widest">
@@ -101,7 +105,7 @@
                         </p>
                       </div>
                       <component
-                        class="z-0 absolute -right-2 -bottom-10"
+                        class="-right-2 -bottom-10 z-0 absolute"
                         :is="model.icon"
                       />
                     </div>
@@ -112,18 +116,18 @@
 
             <!-- séparateur -->
             <div
-              class="mt-4 mb-2 col-span-4 h-px bg-gradient-to-r from-transparent via-light to-transparent"
+              class="col-span-4 bg-gradient-to-r from-transparent via-light to-transparent mt-4 mb-2 h-px"
             />
 
             <!-- Projets en société -->
-            <div class="col-span-1 lg:col-span-4 space-y-4">
+            <div class="space-y-4 col-span-1 lg:col-span-4">
               <h2
-                class="text-2xl lg:text-3xl text-center font-bold mb-4 tracking-wider uppercase"
+                class="mb-4 font-bold text-2xl lg:text-3xl text-center uppercase tracking-wider"
               >
                 Projets en société
               </h2>
               <h1
-                class="pl-5 text-3xl lg:text-4xl font-thin tracking-widest uppercase mb-2 font"
+                class="mb-2 pl-5 font-thin text-3xl lg:text-4xl uppercase tracking-widest font"
               >
                 alstom
               </h1>
@@ -132,22 +136,22 @@
               <div
                 v-for="project in projects"
                 :key="project.name"
-                class="h-auto lg:h-48 flex flex-col lg:flex-row lg:space-x-6 p-3 bg-card-dark border border-medium-gray rounded-xl overflow-hidden"
+                class="flex lg:flex-row flex-col lg:space-x-6 bg-card-dark p-3 border border-medium-gray rounded-xl h-auto lg:h-48 overflow-hidden"
               >
                 <div class="w-full lg:w-1/2 aspect-video overflow-hidden">
                   <img
                     :src="project.image"
                     :alt="project.name"
-                    class="rounded-lg object-cover size-full"
+                    class="rounded-lg size-full object-cover"
                   />
                 </div>
                 <div
-                  class="overflow-y-auto pr-2 w-full lg:w-1/2 flex flex-col justify-start mt-4 lg:mt-0"
+                  class="flex flex-col justify-start mt-4 lg:mt-0 pr-2 w-full lg:w-1/2 overflow-y-auto"
                 >
-                  <h3 class="text-xl tracking-wider font-medium uppercase">
+                  <h3 class="font-medium text-xl uppercase tracking-wider">
                     {{ project.name }}
                   </h3>
-                  <p class="text-justify tracking-wide font-light">
+                  <p class="font-light text-justify tracking-wide">
                     {{ project.description }}
                   </p>
                 </div>
@@ -158,7 +162,7 @@
         <!-- Modal for why dev -->
         <Modal :is-open="whyDevModal" @close="whyDevModal = false">
           <div
-            class="mt-8 text-lg lg:text-2xl lg:leading-normal leading-6 font-extralight lg:tracking-wide text-justify rounded-xl py-3 px-5"
+            class="mt-8 px-5 py-3 rounded-xl font-extralight text-lg lg:text-2xl text-justify leading-6 lg:leading-normal lg:tracking-wide"
           >
             <p class="*:font-medium">
               Les plateformes no-code simplifient la création de sites, mais
@@ -171,7 +175,7 @@
               >. Il intègre vos idées sans dépendre à des modules préconçus.
             </p>
             <div
-              class="mt-6 mb-4 col-span-4 h-px bg-gradient-to-r from-transparent via-light to-transparent"
+              class="col-span-4 bg-gradient-to-r from-transparent via-light to-transparent mt-6 mb-4 h-px"
             />
             <p class="*:font-medium">
               Le no-code semble économique, mais à long terme, la
@@ -188,34 +192,34 @@
         </Modal>
         <!-- Portoflio -->
         <grid-card
-          class="group cursor-pointer relative row-span-2 text-start"
+          class="group relative row-span-2 text-start cursor-pointer"
           @click="portoflioModal = true"
         >
           <p
-            class="group-hover:-mt-1.5 group-hover:-ml-1.5 transform duration-300 inline-block relative after:absolute after:block after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full z-10 uppercase font-bold text-2xl lg:text-3xl"
+            class="after:block inline-block after:bottom-0 after:left-0 z-10 after:absolute relative after:bg-current group-hover:-mt-1.5 group-hover:-ml-1.5 after:w-0 group-hover:after:w-full after:h-0.5 font-bold text-2xl lg:text-3xl uppercase after:transition-width duration-300 after:duration-300 transform"
           >
             portfolio
           </p>
-          <div class="absolute z-0 -right-10 -bottom-14">
+          <div class="-right-10 -bottom-14 z-0 absolute">
             <icons-portfolio />
           </div>
         </grid-card>
         <!-- Contact -->
-        <grid-card class="relative group row-span-3">
+        <grid-card class="group relative row-span-3">
           <a
             class="overflow-hidden"
             href="mailto:demey.christophe.dc@gmail.com"
           >
             <p
-              class="group-hover:-mt-1.5 group-hover:-mr-1.5 transform duration-300 relative z-10 pl-2 uppercase font-bold text-2xl lg:text-3xl text-end"
+              class="z-10 relative group-hover:-mt-1.5 group-hover:-mr-1.5 pl-2 font-bold text-2xl lg:text-3xl text-end uppercase duration-300 transform"
             >
               <span
-                class="relative after:absolute after:block after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full"
+                class="after:block after:bottom-0 after:left-0 after:absolute relative after:bg-current after:w-0 group-hover:after:w-full after:h-0.5 after:transition-width after:duration-300"
                 >discutons</span
               >
               de votre projet
             </p>
-            <div class="absolute z-0 -left-0 -bottom-12">
+            <div class="-bottom-12 -left-0 z-0 absolute">
               <icons-contact />
             </div>
           </a>
@@ -223,30 +227,30 @@
         <!-- Why code ? -->
         <grid-card
           @click="whyDevModal = true"
-          class="group cursor-pointer relative row-span-3"
+          class="group relative row-span-3 cursor-pointer"
         >
           <div
-            class="group-hover:-ml-1.5 group-hover:-mb-1.5 transform duration-300 absolute bottom-2 z-10 uppercase w-2/3 font-thin text-xl lg:text-2xl"
+            class="bottom-2 z-10 absolute group-hover:-mb-1.5 group-hover:-ml-1.5 w-2/3 font-thin text-xl lg:text-2xl uppercase duration-300 transform"
           >
             <span
-              class="relative after:absolute after:block after:w-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:transition-width after:duration-300 group-hover:after:w-full"
+              class="after:block after:bottom-0 after:left-0 after:absolute relative after:bg-current after:w-0 group-hover:after:w-full after:h-px after:transition-width after:duration-300"
               >pourquoi</span
             >
             faire appel à un dev ?
           </div>
-          <div class="absolute z-0 -right-16 top-0">
+          <div class="top-0 -right-16 z-0 absolute">
             <icons-why />
           </div>
         </grid-card>
         <!-- Socials -->
         <grid-card class="group relative row-span-3">
           <div
-            class="flex space-y-3 flex-col size-full items-end justify-center pr-4 relative z-10"
+            class="z-10 relative flex flex-col justify-center items-end space-y-3 pr-4 size-full"
           >
             <a
               v-for="social in socials"
               :key="social.name"
-              class="font-thin text-lg group-hover:-mr-1.5 transform duration-300 relative lg:text-xl after:absolute after:block after:w-0 after:h-px after:bottom-0 after:right-0 after:bg-current after:transition-width after:duration-300 hover:after:w-full"
+              class="after:block after:right-0 after:bottom-0 after:absolute relative after:bg-current group-hover:-mr-1.5 after:w-0 hover:after:w-full after:h-px font-thin text-lg lg:text-xl after:transition-width duration-300 after:duration-300 transform"
               :href="social.url"
               target="_blank"
             >
@@ -255,22 +259,22 @@
               </p>
             </a>
           </div>
-          <div class="absolute z-0 bottom-10 -left-12">
+          <div class="bottom-10 -left-12 z-0 absolute">
             <icons-socials />
           </div>
         </grid-card>
         <!-- Language & Theme -->
-        <grid-card class="row-span-1 flex flex-col lg:flex-row">
-          <div class="size-full flex items-center justify-center">
+        <grid-card class="flex lg:flex-row flex-col row-span-1">
+          <div class="flex justify-center items-center size-full">
             <ThemeSwitch v-model="isDark" />
           </div>
           <!-- <div
-              class="w-full lg:w-1/2 lg:pl-2 flex items-center justify-center lg:justify-start py-2 lg:py-0"
+              class="flex justify-center lg:justify-start items-center py-2 lg:py-0 lg:pl-2 w-full lg:w-1/2"
             >
               <LanguageSwitch v-model="locale" />
             </div>
             <div
-              class="w-full lg:w-1/2 flex items-center justify-center lg:pr-1 lg:justify-end py-2 lg:py-0"
+              class="flex justify-center lg:justify-end items-center py-2 lg:py-0 lg:pr-1 w-full lg:w-1/2"
             >
               <ThemeSwitch v-model="isDark" />
             </div> -->
@@ -292,7 +296,7 @@ useSeoMeta({
   description:
     "Développeur web freelance – Création de sites web sur-mesure, modernes et performants.",
   ogDescription:
-    "Besoin d’un site web unique? Chriswave, développeur freelance, crée votre solution digitale sur-mesure!",
+    "Besoin d'un site web unique? Chriswave, développeur freelance, crée votre solution digitale sur-mesure!",
   ogImage: "/assets/Chriswave_logo.png",
   twitterCard: "summary_large_image",
   // themeColor: "#242424",

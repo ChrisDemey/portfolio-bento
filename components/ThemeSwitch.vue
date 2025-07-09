@@ -3,13 +3,13 @@
     <IconsDarkMode class="size-5" />
     <button
       @click="toggle"
-      class="cursor-pointer relative bg-light inline-flex h-5 w-8 items-center rounded-full"
+      class="inline-flex relative items-center bg-light-gray rounded-full w-8 h-5 cursor-pointer"
       :aria-label="
         modelValue ? 'Activer le mode clair' : 'Activer le mode sombre'
       "
     >
       <span
-        class="inline-block size-4 transform rounded-full bg-card-dark transition"
+        class="inline-block bg-card-dark rounded-full size-4 transition transform"
         :class="modelValue ? 'translate-x-0.5' : 'translate-x-3.5'"
       ></span>
     </button>

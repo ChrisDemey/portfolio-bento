@@ -36,13 +36,6 @@
               Création de <span class="font-bold">sites web</span> et <span class="font-bold">solutions digitales</span> (SaaS)
             </h3>
           </div>
-          <!-- <div class="-bottom-8 z-0 absolute flex flex-col items-center w-full">
-            <img
-              src="/assets/Chriswave_logo.png"
-              alt="chriswave_logo"
-              class="opacity-25 object-contain"
-            />
-          </div> -->
           <!-- Flèche animée pour mobile -->
           <div class="lg:hidden right-0 bottom-0 left-0 absolute flex justify-center mt-12 -mb-20">
             <svg
@@ -162,7 +155,7 @@
           @click="portoflioModal = true"
         >
           <p
-            class="after:block inline-block after:bottom-0 after:left-0 z-10 after:absolute relative after:bg-current group-hover:-mt-1.5 group-hover:-ml-1.5 after:w-0 group-hover:after:w-full after:h-0.5 font-bold text-2xl lg:text-3xl uppercase after:transition-width duration-300 after:duration-300 transform"
+            class="after:block inline-block after:bottom-0 after:left-0 z-10 after:absolute relative after:bg-current after:w-0 group-hover:after:w-full after:h-0.5 font-bold text-2xl lg:text-3xl uppercase after:transition-width duration-300 after:duration-300 transform"
           >
             portfolio
           </p>
@@ -177,7 +170,7 @@
             href="mailto:demey.christophe.dc@gmail.com"
           >
             <p
-              class="z-10 relative group-hover:-mt-1.5 group-hover:-mr-1.5 pl-2 font-bold text-2xl lg:text-3xl text-end uppercase duration-300 transform"
+              class="z-10 relative pl-2 font-bold text-2xl lg:text-3xl text-end uppercase duration-300 transform"
             >
               <span
                 class="after:block after:bottom-0 after:left-0 after:absolute relative after:bg-current after:w-0 group-hover:after:w-full after:h-0.5 after:transition-width after:duration-300"
@@ -196,7 +189,7 @@
           class="group relative row-span-3 cursor-pointer"
         >
           <div
-            class="bottom-4 z-10 absolute group-hover:-mb-1.5 group-hover:-ml-1.5 w-[80%] font-thin text-xl lg:text-2xl uppercase duration-300 transform"
+            class="bottom-4 z-10 absolute w-[80%] font-thin text-xl lg:text-2xl uppercase duration-300 transform"
           > Mes
             <span
               class="after:block after:bottom-0 after:left-0 after:absolute relative after:bg-current after:w-0 group-hover:after:w-full after:h-px after:transition-width after:duration-300"
@@ -216,7 +209,7 @@
             <a
               v-for="social in socials"
               :key="social.name"
-              class="after:block after:right-0 after:bottom-0 after:absolute relative after:bg-current group-hover:-mr-1.5 after:w-0 hover:after:w-full after:h-px font-thin text-lg lg:text-xl after:transition-width duration-300 after:duration-300 transform"
+              class="after:block after:right-0 after:bottom-0 after:absolute relative after:bg-current after:w-0 hover:after:w-full after:h-px font-thin text-lg lg:text-xl after:transition-width duration-300 after:duration-300 transform"
               :href="social.url"
               target="_blank"
             >
@@ -265,11 +258,11 @@ useSeoMeta({
     "Besoin d'un site web unique? Chriswave, développeur freelance, crée votre solution digitale sur-mesure!",
   ogImage: "/assets/Chriswave_logo.png",
   twitterCard: "summary_large_image",
-  // themeColor: "#242424",
 });
 
 const portoflioModal = ref(false);
 const modelsModal = ref(false);
+const isDark = ref(true);
 
 const scrollToBento = () => {
   const bentoSection = document.getElementById("bento-section");
@@ -348,6 +341,4 @@ const websitesModels = [
     link: "https://multipage-model.vercel.app/",
   },
 ];
-
-const isDark = ref(true);
 </script>

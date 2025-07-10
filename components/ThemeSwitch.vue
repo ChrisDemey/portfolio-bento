@@ -9,7 +9,7 @@
       "
     >
       <span
-        class="inline-block bg-card-dark rounded-full size-4 transition transform"
+        class="inline-block bg-medium-gray rounded-full size-4 transition transform"
         :class="modelValue ? 'translate-x-0.5' : 'translate-x-3.5'"
       ></span>
     </button>

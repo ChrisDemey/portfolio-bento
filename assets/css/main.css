@@ -47,3 +47,23 @@
     background-position: 100%;
 }
 }
+
+.rounded-inherit {
+    border-radius: inherit;
+}
+
+.border-gradient-rounded::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #F472B6, #5EEAD4);
+    mask: 
+        linear-gradient(white 0 0) content-box, 
+        linear-gradient(white 0 0);
+    mask-composite: subtract;
+    -webkit-mask: 
+        linear-gradient(white 0 0) content-box, 
+        linear-gradient(white 0 0);
+    -webkit-mask-composite: source-out;
+    /* pointer-events: none; */
+}

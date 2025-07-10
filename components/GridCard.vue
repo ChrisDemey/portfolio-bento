@@ -1,16 +1,9 @@
 <template>
-  <div class="group relative size-full">
-    <div
-      class="z-0 absolute bg-gradient-to-b from-[#F472B6] to-[#5EEAD4] to-75% shadow-teal-500/50 group-hover:shadow-lg rounded-xl size-full"
-    />
-    <div
-      class="z-10 absolute group-hover:p-1.5 size-full duration-300 transform"
-    >
-      <div
-        class="relative bg-card-dark shadow-black/40 group-hover:shadow-inner p-4 border border-medium-gray group-hover:border-0 rounded-xl group-hover:rounded-lg size-full overflow-hidden text-light-gray duration-300 transform"
-      >
-        <slot />
-      </div>
+  <div class="group relative bg-light/10 shadow-[#5EEAD4]/30 hover:shadow-lg backdrop-blur-2xl rounded-2xl size-full overflow-hidden text-light-gray transition-shadow">
+    <div class="z-50 relative before:opacity-0 group-hover:before:opacity-100 before:p-1 border-gradient-rounded before:rounded-2xl size-full before:transition hover:before:duration-300 pointer-events-none">
+    </div>
+    <div class="z-40 absolute inset-0 p-4 border border-medium-gray rounded-inherit pointer-events-auto">
+      <slot />
     </div>
   </div>
 </template>

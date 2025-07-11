@@ -4,56 +4,60 @@
   >
     <div class="z-0 absolute inset-0 opacity-70 background--custom" />
     <div
-      class="z-5 absolute inset-0 bg-radial from-dark via-dark/70 to-transparent"
+      class="hidden lg:block z-5 absolute inset-0 bg-radial from-dark via-dark/70 to-transparent"
     />
     <img
       src="/assets/Chriswave_logo.png"
       alt="chriswave_logo"
-      class="top-7 z-10 absolute size-20 object-cover"
+      class="top-7 z-50 absolute bg-light-gray rounded-full size-20 object-cover"
     />
     <div
       class="z-10 relative flex lg:flex-row flex-col lg:items-center lg:space-x-12 mx-auto w-full max-w-6xl h-full lg:aspect-video"
     >
       <!-- gauche -->
       <section
-        class="flex justify-center items-center w-full lg:max-w-1/2 lg:h-full"
+        class="flex justify-center items-center w-full lg:max-w-1/2 h-svh lg:h-full"
       >
-        <div class="relative flex flex-col justify-start items-center">
+        <div
+          class="relative flex flex-col justify-center items-center size-full"
+        >
+          <!-- <div
+            class="lg:hidden z-0 absolute bg-radial from-dark via-dark/10 to-dark/0 w-full h-1/2"
+          /> -->
           <div class="z-10 relative w-full uppercase">
             <h1
-              class="font-thin text-3xl lg:text-4xl text-center lg:text-end tracking-widest"
+              class="font-thin text-2xl lg:text-4xl text-center lg:text-end tracking-widest"
             >
               développeur web
             </h1>
-            <h2 class="font-bold text-4xl lg:text-8xl text-center lg:text-end">
+            <h2 class="font-bold text-5xl lg:text-8xl text-center lg:text-end">
               Chriswave
             </h2>
             <h3
-              class="mt-4 lg:pr-2 font-thin text-xl lg:text-3xl text-center lg:text-end leading-10 tracking-widest"
+              class="mt-4 px-4 lg:px-0 lg:pr-2 font-thin text-lg lg:text-3xl text-center lg:text-end leading-6 lg:leading-10 tracking-widest"
             >
               Création de <span class="font-bold">sites web</span> et
               <span class="font-bold">solutions digitales</span> (SaaS)
             </h3>
-          </div>
-          <!-- Flèche animée pour mobile -->
-          <div
-            class="lg:hidden right-0 bottom-0 left-0 absolute flex justify-center mt-12 -mb-20"
-          >
-            <svg
-              class="border-2 rounded-full w-8 h-8 text-current animate-bounce cursor-pointer"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              @click="scrollToBento"
+            <div
+              class="lg:hidden right-0 bottom-0 left-0 absolute flex justify-center mt-12 -mb-20"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 4v16m0 0l-4-4m4 4l4-4"
-              />
-            </svg>
+              <svg
+                class="border-2 rounded-full w-8 h-8 text-current animate-bounce cursor-pointer"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                @click="scrollToBento"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4v16m0 0l-4-4m4 4l4-4"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
@@ -61,7 +65,7 @@
       <!-- droite -->
       <section
         id="bento-section"
-        class="gap-4 grid grid-cols-2 grid-rows-6 p-4 lg:p-0 w-full lg:max-w-1/2 h-screen lg:h-full"
+        class="gap-4 grid grid-cols-2 grid-rows-6 p-4 lg:p-0 w-full lg:max-w-1/2 h-svh lg:h-full"
       >
         <!-- Modal for Portfolio -->
         <Modal :is-open="portoflioModal" @close="portoflioModal = false">
@@ -120,14 +124,16 @@
         <!-- Modal for models -->
         <Modal :is-open="modelsModal" @close="modelsModal = false">
           <div
-            class="col-span-1 lg:col-span-4 bg-light-gray/80 backdrop-blur-lg mt-4 px-3 pt-6 pb-3 rounded-2xl"
+            class="bg-light-gray/80 backdrop-blur-lg mx-auto mt-4 px-3 pt-6 pb-3 rounded-2xl w-full max-w-4xl"
           >
             <h2
-              class="mb-6 font-bold text-dark text-2xl lg:text-3xl text-center uppercase tracking-wider"
+              class="mb-4 lg:mb-6 font-bold text-dark text-xl sm:text-2xl lg:text-3xl text-center uppercase tracking-wider"
             >
               Modèles de base
             </h2>
-            <div class="gap-3 grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2">
+            <div
+              class="gap-3 lg:gap-4 grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2"
+            >
               <a
                 v-for="model in websitesModels"
                 :key="model.name"
@@ -144,38 +150,40 @@
                   <div
                     class="relative flex justify-center items-center bg-card-dark rounded-xl group-hover:rounded-lg size-full overflow-hidden text-light-gray duration-300 transform"
                   >
-                    <div class="z-10 text-center">
+                    <div class="z-10 px-2 sm:px-4 text-center">
                       <h3 class="font-bold text-3xl uppercase tracking-wider">
                         {{ model.name }}
                       </h3>
-                      <p class="tracking-widest">
+                      <p class="lg:mt-2 tracking-widest">
                         {{ model.description }}
                       </p>
                     </div>
                     <component
-                      class="-right-2 -bottom-10 z-0 absolute"
+                      class="-right-2 -bottom-10 z-0 absolute w-16 sm:w-20 lg:w-24 h-16 sm:h-20 lg:h-24"
                       :is="model.icon"
                     />
                   </div>
                 </div>
               </a>
               <div
-                class="relative col-span-2 bg-card-dark hover:opacity-20 rounded-xl size-full overflow-hidden text-light-gray transition cursor-not-allowed"
+                class="relative col-span-1 sm:col-span-2 bg-card-dark hover:opacity-20 rounded-xl size-full aspect-video lg:aspect-auto overflow-hidden text-light-gray transition cursor-not-allowed"
               >
                 <div
-                  class="z-10 relative flex flex-col justify-center items-center pl-4 w-2/3 h-full"
+                  class="z-10 relative flex flex-col justify-center items-center w-full lg:w-2/3 h-full"
                 >
                   <h3 class="font-bold text-3xl uppercase tracking-wider">
                     Bento box
                   </h3>
-                  <p class="tracking-widest">Plus moderne, plus personnel</p>
+                  <p class="mt-2 text-center tracking-widest">
+                    Plus moderne, plus personnel
+                  </p>
                 </div>
                 <div
                   class="right-0 bottom-0 z-0 absolute flex justify-end items-center size-full"
                 >
                   <Icon
                     class="text-medium-gray"
-                    size="220"
+                    size="200"
                     name="ic:round-bento"
                   />
                 </div>

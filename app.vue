@@ -1,18 +1,16 @@
 <template>
-  <div
-    class="relative flex justify-center items-center bg-dark w-full min-h-screen font-montserrat text-light-gray"
-  >
-    <div class="z-0 absolute inset-0 opacity-70 background--custom" />
-    <div
-      class="hidden lg:block z-5 absolute inset-0 bg-radial from-dark via-dark/70 to-transparent"
-    />
+  <!-- Couche 1: Aurora Background fixe -->
+  <AuroraBackground class="fixed inset-0 z-0" />
+  
+  <!-- Couche 2: Contenu du site -->
+  <div class="relative z-10 flex justify-center items-center bg-transparent w-full min-h-screen font-montserrat text-light-gray">
     <img
       src="/assets/Chriswave_logo.png"
       alt="chriswave_logo"
       class="top-7 z-50 absolute bg-light-gray rounded-full size-20 object-cover"
     />
     <div
-      class="z-10 relative flex lg:flex-row flex-col lg:items-center lg:space-x-12 mx-auto w-full max-w-6xl h-full lg:aspect-video"
+      class="z-10 relative flex lg:flex-row flex-col lg:items-center lg:space-x-12 mx-auto w-full max-w-6xl h-auto lg:aspect-video"
     >
       <!-- gauche -->
       <section

@@ -6,7 +6,7 @@
       class="z-50 relative before:opacity-0 group-hover:before:opacity-100 before:p-1 border-gradient-rounded before:rounded-2xl size-full before:transition hover:before:duration-300 pointer-events-none"
     ></div>
     <div
-      class="z-40 absolute inset-0 p-4 lg:border border-medium-gray rounded-inherit pointer-events-auto"
+      class="z-40 absolute inset-0 p-4 border-2 border-light-gray/40 rounded-inherit pointer-events-auto"
     >
       <slot />
     </div>

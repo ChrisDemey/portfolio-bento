@@ -1,19 +1,30 @@
 <template>
-  <div class="flex items-center space-x-4">
-    <IconsDarkMode class="size-5" />
+  <div class="flex items-center space-x-3">
+    <!-- Icône Moon (Dark Mode) -->
+    <Icon 
+      name="heroicons:moon-20-solid"
+      class="text-light-gray transition-opacity"
+      size="18"
+    />
+    
+    <!-- Switch Toggle -->
     <button
       @click="toggle"
-      class="inline-flex relative items-center bg-light-gray rounded-full w-8 h-5 cursor-pointer"
-      :aria-label="
-        modelValue ? 'Activer le mode clair' : 'Activer le mode sombre'
-      "
+      class="inline-flex relative items-center bg-light-gray focus:ring-opacity-50 rounded-full focus:outline-none w-12 h-6 transition-colors duration-200 ease-in-out"
+      :aria-label="modelValue ? 'Activer le mode clair' : 'Activer le mode sombre'"
     >
       <span
-        class="inline-block bg-medium-gray rounded-full size-4 transition transform"
-        :class="modelValue ? 'translate-x-0.5' : 'translate-x-3.5'"
+        class="inline-block bg-card-dark shadow-lg rounded-full size-4 transition-all duration-200 ease-in-out transform"
+        :class="modelValue ? 'translate-x-1' : 'translate-x-7'"
       ></span>
     </button>
-    <IconsLightMode class="size-5" />
+    
+    <!-- Icône Sun (Light Mode) -->
+    <Icon 
+      name="heroicons:sun-20-solid"
+      class="text-light-gray transition-opacity"
+      size="22"
+    />
   </div>
 </template>
 

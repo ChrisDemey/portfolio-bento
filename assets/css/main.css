@@ -33,21 +33,6 @@
     --color-light-gray: #D9D9D9;
 }
 
-.background--custom {
-    background: linear-gradient(90deg, #F472B6, #5EEAD4);
-    background-size: 300% 300%;
-    animation: gradient 5s alternate infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0%;
-    }
-
-    100% {
-        background-position: 100%;
-    }
-}
 
 .rounded-inherit {
     border-radius: inherit;
@@ -66,4 +51,20 @@
         linear-gradient(white 0 0) content-box,
         linear-gradient(white 0 0);
     -webkit-mask-composite: source-out; */
+}
+
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
 }

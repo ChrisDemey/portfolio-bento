@@ -1,9 +1,9 @@
 <template>
   <!-- Couche 1: Aurora Background fixe -->
-  <AuroraBackground class="fixed inset-0 z-0" />
+  <AuroraBackground class="z-0 fixed inset-0 bg-dark" />
   
   <!-- Couche 2: Contenu du site -->
-  <div class="relative z-10 flex justify-center items-center bg-transparent w-full min-h-screen font-montserrat text-light-gray">
+  <div class="z-10 relative flex justify-center items-center bg-transparent w-full min-h-screen font-montserrat text-light-gray">
     <img
       src="/assets/Chriswave_logo.png"
       alt="chriswave_logo"
@@ -164,7 +164,7 @@
                 </div>
               </a>
               <div
-                class="relative col-span-1 sm:col-span-2 bg-card-dark hover:opacity-20 rounded-xl size-full aspect-video lg:aspect-auto overflow-hidden text-light-gray transition cursor-not-allowed"
+                class="relative col-span-1 sm:col-span-2 bg-card-dark opacity-20 rounded-xl size-full aspect-video lg:aspect-auto overflow-hidden text-light-gray transition cursor-not-allowed"
               >
                 <div
                   class="z-10 relative flex flex-col justify-center items-center w-full lg:w-2/3 h-full"

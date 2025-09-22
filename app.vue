@@ -210,7 +210,7 @@
         <grid-card class="group relative row-span-3">
           <a
             class="overflow-hidden"
-            href="mailto:demey.christophe.dc@gmail.com"
+            href="mailto:hello@chriswave.be"
           >
             <p
               class="z-10 relative pl-2 font-bold text-2xl lg:text-3xl text-end uppercase duration-300 transform"
@@ -304,7 +304,7 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-const portoflioModal = ref(true);
+const portoflioModal = ref(false);
 const modelsModal = ref(false);
 const isDark = ref(true);
 

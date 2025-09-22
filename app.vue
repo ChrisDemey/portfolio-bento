@@ -67,9 +67,12 @@
       >
         <!-- Modal for Portfolio -->
         <Modal :is-open="portoflioModal" @close="portoflioModal = false">
-          <div class="gap-8 lg:gap-4 grid lg:grid-cols-4">
+          <ul class="flex justify-center items-center gap-4 py-4 w-full">
+            <li @click="setActiveFilter(item.name)" v-for="item in projectsTypes" :key="item.name" :class="{ 'bg-light/10 border hover:bg-light/20 border-light/20': activeFilter === item.name }" class="hover:bg-light/10 px-4 py-2 rounded-full text-light transition duration-150 cursor-pointer">{{ item.name }}</li>
+          </ul>
+          <div class="gap-8 lg:gap-4 grid lg:grid-cols-4 pb-4">
             <div
-              v-for="company in projectsByCompany"
+              v-for="company in filteredProjects"
               :key="company.company"
               class="col-span-1 lg:col-span-4"
             >
@@ -285,7 +288,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import IconsOnepage from "./components/icons/Onepage.vue";
 import IconsMultipage from "./components/icons/Multipage.vue";
 
@@ -301,7 +304,7 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
-const portoflioModal = ref(false);
+const portoflioModal = ref(true);
 const modelsModal = ref(false);
 const isDark = ref(true);
 
@@ -337,18 +340,32 @@ const socials = [
   },
 ];
 
+const projectsTypes = [
+  {
+    name: "Tous",
+  },
+  {
+    name: "SaaS",
+  },
+  {
+    name: "Sites web"
+  }
+]
+
 const projectsByCompany = [
   {
     company: "Alstom",
     projects: [
       {
         name: "Carsharing",
+        type: "SaaS",
         image: "/assets/carsharing_screenshot.png",
         description:
           "Projet de covoiturage réservés aux employés de l'entreprise. Il permet de créer/partager/rechercher des trajets ainsi que renseigner leur propre voiture ainsi que des destinations fixes.",
       },
       {
         name: "Desksharing",
+        type: "SaaS",
         image: "/assets/desksharing_screenshot.png",
         description:
           "Projet de partage de bureaux, interne à l'entreprise. Mis en place durant la pandémie de Covid-19, il permet de visualiser la disponibilité des bureaux en temps réel et de les réserver pour des périodes de temps spécifiques.",
@@ -356,17 +373,50 @@ const projectsByCompany = [
     ],
   },
   {
+    company: "Sympa'Dress",
+    projects: [
+      {
+        name: "Site de prise de rendez-vous",
+        type: "Sites web",
+        image: "/assets/sympadress_screenshot.png",
+        description:
+          "Conçu pour une conseillère en image, ce site permet au personnes le visitant de prendre directement rendez-vous avec cette dernière.",
+        link: "https://www.sympadress.com/",
+      }
+    ]
+  },
+  {
     company: "Nirvana Centre de Bien-Être",
     projects: [
       {
+        name: "Site vitrine",
+        type: "Sites web",
         image: "/assets/nirvana_screenshot.png",
         description:
-          "J'ai réalisé ce site vitrine pour un centre de beauté, il s'agissait de concevoir une page d'accueil simple et efficace pour présenter leurs services.",
+          "Il s'agit d'un simple landing page pour présenter les différents services de ce centre de beauté.",
         link: "https://www.nirvanacentredebienetre.com/",
-      },
-    ],
-  },
+      }
+    ]
+  }
 ];
+
+const activeFilter = ref('Tous')
+
+const filteredProjects = computed(() => {
+  if (activeFilter.value === 'Tous') {
+    return projectsByCompany
+  }
+  return projectsByCompany
+    .map(company => ({
+      ...company,
+      projects: company.projects.filter(project => project.type === activeFilter.value)
+    }))
+    .filter(company => company.projects.length > 0)
+})
+
+const setActiveFilter = (filterName) => {
+  activeFilter.value = filterName
+}
 
 const websitesModels = [
   {

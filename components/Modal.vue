@@ -18,7 +18,7 @@
           @click.stop
         >
           <button
-            class="top-3 sm:top-4 right-3 sm:right-4 absolute text-light hover:text-light/80 transition-colors"
+            class="top-3 sm:top-4 right-3 sm:right-4 absolute text-light/60 hover:text-light/30 transition-colors cursor-pointer"
             @click="closeModal"
           >
             <span class="sr-only">Fermer</span>

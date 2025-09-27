@@ -1,8 +1,7 @@
-import { ref } from 'vue'
-
 export const useModals = () => {
-  const portoflioModal = ref(false)
-  const modelsModal = ref(false)
+  // Utiliser useState pour partager l'état global entre tous les composants
+  const portoflioModal = useState('portfolio-modal', () => false)
+  const modelsModal = useState('models-modal', () => false)
 
   const openPortfolioModal = () => {
     portoflioModal.value = true

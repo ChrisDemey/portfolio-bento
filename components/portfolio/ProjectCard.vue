@@ -1,5 +1,5 @@
 <template>
-  <div class="flex lg:flex-row flex-col lg:space-x-6 bg-light/10 backdrop-blur-2xl mb-4 p-3 border border-medium-gray rounded-xl h-auto lg:h-48 overflow-hidden">
+  <div class="flex lg:flex-row flex-col lg:space-x-6 bg-text/10 dark:bg-text-dark/10 backdrop-blur-2xl mb-4 p-3 border border-medium-gray dark:border-medium-gray-dark rounded-xl h-auto lg:h-48 overflow-hidden">
     <!-- Project image -->
     <component
       :is="project.link ? 'a' : 'div'"
@@ -37,7 +37,7 @@
       </p>
 
       <!-- External link indicator -->
-      <div v-if="project.link" class="flex items-center mt-2 text-sm text-light/70">
+      <div v-if="project.link" class="flex items-center mt-2 text-sm text-text/70 dark:text-text-dark/70">
         <Icon name="ph:arrow-square-out" class="mr-1 w-4 h-4" />
         Voir le site
       </div>

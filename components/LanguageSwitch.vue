@@ -3,10 +3,10 @@
     <span class="font-thin text-sm sm:text-sm">FR</span>
     <button
       @click="toggle"
-      class="inline-flex relative items-center bg-light rounded-full w-8 sm:w-8 h-5 sm:h-5 cursor-pointer"
+      class="inline-flex relative items-center bg-text dark:bg-text-dark rounded-full w-8 sm:w-8 h-5 sm:h-5 cursor-pointer"
     >
       <span
-        class="inline-block bg-card-dark rounded-full size-4 sm:size-4 transition transform"
+        class="inline-block bg-surface dark:bg-surface-dark rounded-full size-4 sm:size-4 transition transform"
         :class="modelValue === 'fr' ? 'translate-x-0.5' : 'translate-x-3.5'"
       ></span>
     </button>

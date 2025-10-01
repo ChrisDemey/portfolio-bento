@@ -7,9 +7,9 @@
         :key="item.name"
         @click="setActiveFilter(item.name)"
         :class="{
-          'bg-light/10 border hover:bg-light/20 border-light/20': activeFilter === item.name
+          'bg-text/10 dark:bg-text-dark/10 border hover:bg-text/20 dark:hover:bg-text-dark/20 border-text/20 dark:border-text-dark/20': activeFilter === item.name
         }"
-        class="hover:bg-light/10 px-4 py-2 rounded-full text-light transition duration-150 cursor-pointer"
+        class="hover:bg-text/10 dark:hover:bg-text-dark/10 px-4 py-2 rounded-full text-text dark:text-text-dark transition duration-150 cursor-pointer"
       >
         {{ item.name }}
       </li>

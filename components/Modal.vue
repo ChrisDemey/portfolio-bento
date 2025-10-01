@@ -10,15 +10,15 @@
     >
       <div
         v-if="isOpen"
-        class="z-50 fixed inset-0 flex justify-center items-center bg-dark/30 backdrop-blur-xl p-4"
+        class="z-50 fixed inset-0 flex justify-center items-center bg-background/30 dark:bg-background-dark/30 backdrop-blur-xl p-4"
         @click="closeModal"
       >
         <div
-          class="relative px-4 sm:px-8 pt-10 sm:pt-12 pb-6 sm:pb-8 w-full max-w-2xl max-h-[90vh] overflow-y-auto text-light"
+          class="relative px-4 sm:px-8 pt-10 sm:pt-12 pb-6 sm:pb-8 w-full max-w-2xl max-h-[90vh] overflow-y-auto text-text dark:text-text-dark"
           @click.stop
         >
           <button
-            class="top-3 sm:top-4 right-3 sm:right-4 absolute text-light/60 hover:text-light/30 transition-colors cursor-pointer"
+            class="top-3 sm:top-4 right-3 sm:right-4 absolute text-text/60 dark:text-text-dark/60 hover:text-text/30 dark:hover:text-text-dark/30 transition-colors cursor-pointer"
             @click="closeModal"
           >
             <span class="sr-only">Fermer</span>

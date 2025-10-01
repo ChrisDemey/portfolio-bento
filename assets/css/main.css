@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (.dark &);
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -7,40 +9,21 @@
 @theme {
     --font-montserrat: "Montserrat", sans-serif;
 
-    /* Dark theme */
-    --color-dark: #242424;
-    --color-card-dark: #373737;
-    --color-light: #FFFFFF;
-    --color-medium-gray: #5A5A5A;
-    --color-light-gray: #D9D9D9;
-    --teal-light: #93ffef;
-    --teal-medium: #5EEAD4;
-    --teal-dark: #42a898;
-    --pink-medium: #F472B6;
-    --pink-light: #ffb4db;
-}
-
-/* Light theme */
-:root {
-    --color-dark: #f3ebda;
-    --color-card-dark: #e2dbcf;
-    --color-light: #000000;
+    /* Light theme colors */
+    --color-background: #f3ebda;
+    --color-surface: #e2dbcf;
+    --color-text: #000000;
     --color-medium-gray: #bbb7b0;
     --color-light-gray: #404040;
-    --teal-light: #93ffef;
-    --teal-medium: #5EEAD4;
-    --teal-dark: #42a898;
-    --pink-medium: #F472B6;
-    --pink-light: #ffb4db;
-}
 
-/* Dark theme */
-.dark {
-    --color-dark: #242424;
-    --color-card-dark: #373737;
-    --color-light: #FFFFFF;
-    --color-medium-gray: #5A5A5A;
-    --color-light-gray: #D9D9D9;
+    /* Dark theme colors */
+    --color-background-dark: #242424;
+    --color-surface-dark: #373737;
+    --color-text-dark: #FFFFFF;
+    --color-medium-gray-dark: #5A5A5A;
+    --color-light-gray-dark: #D9D9D9;
+
+    /* Shared colors (same in both themes) */
     --teal-light: #93ffef;
     --teal-medium: #5EEAD4;
     --teal-dark: #42a898;

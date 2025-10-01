@@ -12,5 +12,33 @@
 </template>
 
 <script setup lang="ts">
-const isDark = ref(true)
+import { ref, onMounted, watch } from 'vue'
+
+const isDark = ref(false)
+
+onMounted(() => {
+  const savedTheme = localStorage.getItem("theme")
+  const shouldBeDark = savedTheme === "dark" ||
+    (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+
+  // Appliquer le thème au document
+  if (shouldBeDark) {
+    document.documentElement.classList.add("dark")
+  } else {
+    document.documentElement.classList.remove("dark")
+  }
+
+  isDark.value = shouldBeDark
+})
+
+// Watcher pour gérer les changements de thème
+watch(isDark, (newValue) => {
+  if (newValue) {
+    document.documentElement.classList.add("dark")
+    localStorage.setItem("theme", "dark")
+  } else {
+    document.documentElement.classList.remove("dark")
+    localStorage.setItem("theme", "light")
+  }
+})
 </script>

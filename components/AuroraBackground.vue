@@ -54,9 +54,9 @@ const styles = computed(() => {
     "--teal-m": "var(--teal-medium)",
     "--teal-d": "var(--teal-dark)",
     "--pink-m": "var(--pink-light)",
-    "--pink-l": "var(--teal-light)",
+    "--pink-l": "#000",
     "--black": "#000",
-    "--white": "#fff",
+    "--white": "#000",
     "--transparent": "transparent",
     "--animate-aurora": "aurora 60s linear infinite",
   };

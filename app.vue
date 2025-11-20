@@ -6,9 +6,9 @@
   <div class="z-10 relative flex justify-center items-center bg-transparent w-full min-h-screen font-montserrat text-light-gray dark:text-light-gray-dark">
     <!-- Logo -->
     <img
-      src="/assets/Chriswave_logo.png"
+      src="/assets/chriswave_logo.png"
       alt="chriswave_logo"
-      class="top-7 z-50 absolute bg-light-gray dark:bg-light-gray-dark rounded-full size-20 object-cover"
+      class="top-7 z-50 absolute w-30 object-cover"
     />
 
     <!-- Main Layout -->

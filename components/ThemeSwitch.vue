@@ -10,7 +10,7 @@
     <!-- Switch Toggle -->
     <button
       @click="toggle"
-      class="inline-flex relative items-center bg-light-gray dark:bg-light-gray-dark focus:ring-opacity-50 rounded-full focus:outline-none w-12 h-6 transition-colors duration-200 ease-in-out"
+      class="inline-flex relative items-center bg-light-gray dark:bg-light-gray-dark focus:ring-opacity-50 rounded-full focus:outline-none w-12 h-6 transition-colors duration-200 ease-in-out cursor-pointer"
       :aria-label="modelValue ? 'Activer le mode clair' : 'Activer le mode sombre'"
     >
       <span

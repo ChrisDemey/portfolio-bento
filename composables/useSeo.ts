@@ -4,7 +4,7 @@ interface SeoConfig {
   ogTitle?: string
   ogDescription?: string
   ogImage?: string
-  twitterCard?: string
+  twitterCard?: "summary_large_image" | "summary" | "app" | "player"
   keywords?: string[]
 }
 
@@ -14,7 +14,7 @@ export const useSeo = () => {
     ogTitle: "Chriswave | Développeur web freelance",
     description: "Développeur web freelance – Création de sites web sur-mesure, modernes et performants.",
     ogDescription: "Besoin d'un site web unique? Chriswave, développeur freelance, crée votre solution digitale sur-mesure!",
-    ogImage: "/assets/Chriswave_logo.png",
+    ogImage: "https://chriswave.be/assets/chriswave_logo.png",
     twitterCard: "summary_large_image",
     keywords: ["développeur web", "freelance", "sites web", "nuxt", "vue", "typescript"]
   }
@@ -68,7 +68,7 @@ export const useSeo = () => {
       name: "Christophe Demey",
       alternateName: "Chriswave",
       url: "https://chriswave.be",
-      image: "/assets/Chriswave_logo.png",
+      image: "https://chriswave.be/assets/chriswave_logo.png",
       jobTitle: "Développeur Web Freelance",
       worksFor: {
         "@type": "Organization",
@@ -89,8 +89,92 @@ export const useSeo = () => {
     }
   }
 
+  const generateLocalBusinessSchema = () => {
+    return {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Chriswave - Développeur Web Freelance",
+      "alternateName": "Chriswave",
+      "description": "Développeur web freelance spécialisé dans la création de sites web modernes et performants avec Vue.js, Nuxt.js et TypeScript. Basé à Charleroi, Belgique.",
+      "url": "https://chriswave.be",
+      "telephone": "+32 474 79 38 52",
+      "email": "hello@chriswave.be",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ransart",
+        "addressLocality": "Charleroi",
+        "addressRegion": "Wallonie",
+        "postalCode": "6000",
+        "addressCountry": "BE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.4089,
+        "longitude": 4.4447
+      },
+      "areaServed": [
+        {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 50.4089,
+            "longitude": 4.4447
+          },
+          "geoRadius": "50000"
+        },
+        {
+          "@type": "City",
+          "name": "Charleroi"
+        },
+        {
+          "@type": "State",
+          "name": "Wallonie"
+        },
+        {
+          "@type": "Country",
+          "name": "Belgique"
+        }
+      ],
+      "priceRange": "$$",
+      "image": "https://chriswave.be/assets/chriswave_logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://chriswave.be/assets/chriswave_logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://github.com/ChrisDemey",
+        "https://linkedin.com/in/christophe-demey/",
+        "https://fr.malt.be/profile/christophedemey",
+        "https://www.youtube.com/@chriswave_dev",
+        "https://www.tiktok.com/@chriswave_dev"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Christophe Demey",
+        "givenName": "Christophe",
+        "familyName": "Demey",
+        "alternateName": "Chriswave",
+        "jobTitle": "Développeur Web Freelance",
+        "email": "hello@chriswave.be",
+        "telephone": "+32 474 79 38 52"
+      },
+      "knowsAbout": [
+        "Vue.js",
+        "Nuxt.js",
+        "TypeScript",
+        "Web Development",
+        "Frontend Development",
+        "Responsive Design",
+        "SaaS Development"
+      ],
+      "slogan": "Création de sites web sur-mesure, modernes et performants"
+    }
+  }
+
   const setJsonLd = (data: object) => {
-    useJsonld(data)
+    useSchemaOrg(data)
   }
 
   return {
@@ -103,6 +187,7 @@ export const useSeo = () => {
 
     // Données structurées
     generateStructuredData,
+    generateLocalBusinessSchema,
     setJsonLd
   }
 }

@@ -34,8 +34,24 @@ import PortfolioModal from '~/components/modals/PortfolioModal.vue'
 import ModelsModal from '~/components/modals/ModelsModal.vue'
 
 // Use composables for business logic
-const { setSeoMeta } = useSeo()
+const { setSeoMeta, generateLocalBusinessSchema, setJsonLd } = useSeo()
 
 // Set default SEO meta
 setSeoMeta()
+
+// Add LocalBusiness structured data for Google Knowledge Panel
+setJsonLd(generateLocalBusinessSchema())
+
+// Set HTML lang attribute and Google Search Console verification
+useHead({
+  htmlAttrs: {
+    lang: 'fr'
+  },
+  meta: [
+    {
+      name: 'google-site-verification',
+      content: '0ednkgoLiaWbsY0jZSACyE71LPVGut9EvP4kSVr0xho'
+    }
+  ]
+})
 </script>

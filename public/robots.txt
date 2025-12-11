@@ -1,0 +1,14 @@
+# robots.txt pour Chriswave
+# https://chriswave.be
+
+User-agent: *
+Allow: /
+Allow: /assets/
+
+# Bloquer les dossiers internes
+Disallow: /.nuxt/
+Disallow: /.output/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://chriswave.be/sitemap.xml

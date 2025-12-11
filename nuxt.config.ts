@@ -30,13 +30,14 @@ export default defineNuxtConfig({
       familyName: "Demey",
 
       // Profile Information
-      image: "/assets/Chriswave_logo.png",
+      image: "https://chriswave.be/assets/chriswave_logo.png",
       description:
         "Développeur web freelance – Création de sites web sur-mesure, modernes et performants.",
       jobTitle: "Développeur web",
 
       // Contact & Social
-      email: "demey.christophe.dc@gmail.com",
+      email: "hello@chriswave.be",
+      telephone: "+32 474 79 38 52",
       url: "https://chriswave.be",
       sameAs: [
         "https://github.com/ChrisDemey",
